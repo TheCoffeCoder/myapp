@@ -1,0 +1,300 @@
+#:include screen1.kv
+#:include order.kv
+#:include review.kv
+
+<Image_btn>:
+    background_color:1,1,1,0
+    source:"girl.jpg"
+    canvas:
+        Color:
+            rgba:1,1,1,1
+        Ellipse:
+            texture:self.texture
+            pos:self.pos
+            size:30,30
+
+
+
+<Boxx>:
+    orientation:"vertical"
+    BoxLayout:
+        size_hint_y:0.3
+        FloatLayout:
+            Image:
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                source:"index.jpg"
+                canvas:
+                    Color:
+                        rgba:100/255,100/255,100/255,1
+                    Rectangle:
+                        texture:self.texture
+                        pos:self.pos
+                        size:self.size
+            MDIconButton:
+                user_font_size:"15sp"
+                size:35,35
+                icon:"apple"
+                md_bg_color:1.,1,1,0.5
+
+
+                pos_hint:{'center_x':0.1,'center_y':0.8}
+                on_release:
+                    app.manager.transition.direction = 'right'
+                    app.manager.current = "view"
+
+            MDIconButton:
+                user_font_size:"15sp"
+                size:35,35
+                icon:"apple"
+                md_bg_color:1.,1,1,0.5
+                pos_hint:{'center_x':0.85,'center_y':0.8}
+                on_release:
+                    app.manager.transition.direction = 'left'
+                    app.manager.current = "review"
+
+            MDLabel:
+                pos_hint:{'center_x':0.232,'center_y':0.3}
+                text:"Aysha's kitchen"
+                halign:"right"
+                font_style:"Subtitle2"
+                color:1,1,1,1
+            MDLabel:
+                pos_hint:{'center_x':0.08,'center_y':0.75}
+                text:"55 MIN"
+                halign:"right"
+                font_style:"Caption"
+                color:1,1,1,1
+            MDLabel:
+                pos_hint:{'center_x':0.04,'center_y':0.57}
+                text:"3.7"
+                halign:"right"
+                font_style:"Caption"
+                color:1,1,1,1
+
+
+
+    BoxLayout:
+        size_hint_y:0.09
+        ScrollView:
+            bar_color:158/255,10/255,250/255,1
+            size_hint:1,1
+            GridLayout:
+                rows:1
+                size_hint_x:None
+                height:25
+                width:self.minimum_width
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+                Mbtn:
+
+
+    BoxLayout:
+        canvas:
+            Color:
+                rgba:0.9,0.9,0.9,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+
+        ScrollView:
+
+            size:1,1
+            GridLayout:
+                spacing:20
+                padding:10
+                cols:1
+                size_hint_y:None
+                height:self.minimum_height
+                padding:5
+                Card_label:
+                Item_card:
+                Item_card:
+                Item_card:
+                Item_card:
+                Item_card:
+                Item_card:
+                Item_card:
+
+
+<Cardbutton>:
+    background_color:1,1,1,0
+    on_release:app.open_popup()
+
+
+<Item_card>:
+
+    orientation:"vertical"
+    size_hint_y:None
+    height:450
+    BoxLayout:
+        Image:
+            source:"burger.jpg"
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                RoundedRectangle:
+                    texture:self.texture
+                    size:self.size
+                    pos:self.pos
+                    radius:[10,10,1,1]
+    BoxLayout:
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+                radius:[1,1,10,10]
+        orientation:"vertical"
+        size_hint_y:0.2
+        MDLabel:
+            size_hint_y:1.3
+            text:"Chicken Burger"
+            halign:"center"
+            theme_text_color:"Primary"
+            font_style:"Caption"
+        MDLabel:
+            text:"500 TK"
+            halign:"center"
+            theme_text_color:"Secondary"
+            font_style:"Caption"
+
+<Card_label@MDLabel>:
+    size_hint_y:None
+    height:100
+    text:"Burger"
+    italic:True
+    bold:True
+    halign:"center"
+    font_style:"H5"
+    font_size:"15sp"
+
+<Card_popup>:
+
+    BoxLayout:
+        orientation:"vertical"
+
+        size_hint:1.5,1.1
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+                radius:[10]
+        MDFlatButton:
+            text:"Close"
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            text_color:1,0,0,1
+            on_release:app.close_popup()
+
+
+
+        ScrollView:
+            size_hint:1,1
+
+            GridLayout:
+                size_hint_y:None
+                height:self.minimum_height
+                cols:2
+
+
+
+                MDLabel:
+                    size_hint_y:None
+                    height:250
+                    text:"Description:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:250
+                    text:"Sauces,Cheases,Chicken Added!"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Time"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Availability"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"9-12 AM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Sat,Sun,Mon"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"12-3 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Mon,Fri"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"3-6 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Tue,Thu"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"6-9 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Sat,Sun,Mon,Tue,Wed,Thu,Fri"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"9-11 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Sat,Sun"
+                    halign:"center"
+
+
+        MDFlatButton:
+            text:"ADD"
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            text_color:0,0,1,1
+            on_release:
+
+                app.close_popup()
+                app.add_chart()
+
+
+
+<Mbtn@MDFlatButton>:
+    size_hint_x:None
+    text:"Pizza"
+    width:25
+    font_size:"8sp"
+    on_release:
+        self.text_color=(1,0,0,1)

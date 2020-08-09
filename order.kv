@@ -1,0 +1,348 @@
+<Obtn>:
+    on_release:
+        app.manager.transition.direction = 'left'
+        app.manager.current = "order"
+    background_color:1,1,1,0
+
+<Add_chart>:
+    size_hint_y:0.1
+    canvas:
+        Color:
+            rgba:252/255,248/255,10/255,1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    MDLabel:
+        text:"1"
+        halign:"center"
+        font_style:"Caption"
+    MDLabel:
+        text:"View Chart:"
+        halign:"center"
+        font_style:"Caption"
+    MDLabel:
+        text:"Tk 500"
+        halign:"center"
+        font_style:"Caption"
+
+<Order>:
+    orientation:"vertical"
+    canvas:
+        Color:
+            rgba:0.8,0.8,0.8,1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        size_hint_y:0.08
+        canvas:
+            Color:
+                rgba:252/255,248/255,10/255,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        MDIconButton:
+            icon:"android-auto"
+            size_hint_x:0.5
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            on_release:
+                app.manager.transition.direction = 'right'
+                app.manager.current = "kitchen"
+        MDLabel:
+            text:"Order List"
+            halign:"left"
+
+    BoxLayout:
+        ScrollView:
+            size_hint:1,1
+            GridLayout:
+                padding:5
+                spacing:20
+                cols:1
+                size_hint_y:None
+                height:self.minimum_height
+                Order_header_card:
+
+                Order_list_card:
+
+                Order_amount_card:
+
+                Order_description_card:
+
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint_y:None
+                    canvas:
+                        Color:
+                            rgba:1,1,1,1
+                        RoundedRectangle:
+                            size:self.size
+                            pos:self.pos
+                            radius:[5]
+                    height:120
+                    MDLabel:
+                        text:"Payment Method"
+                        halign:"center"
+
+                    MDFlatButton:
+                        text:"Add Payment Method"
+                        text_color:1,0,0,1
+                        pos_hint:{'center_x':0.5,'center_y':0.5}
+
+
+
+
+
+    Place_order:
+        size_hint_y:0.08
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        BoxLayout:
+            size_hint_y:0.75
+            size_hint_x:0.9
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            canvas:
+                Color:
+                    rgba:252/255,248/255,10/255,1
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[8]
+            MDLabel:
+                text:"Place Order"
+                halign:"center"
+
+
+<Place_btn>:
+    background_color:1,1,1,0
+    on_release:
+        app.manager.transition.direction = 'left'
+        app.manager.current = "final"
+
+<Order_header_card>:
+    size_hint_y:None
+    height:80
+    canvas:
+        Color:
+            rgba:1,1,1,1
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:[5]
+    MDLabel:
+        text:"header"
+        halign:"center"
+
+
+
+
+<Order_list_card>:
+    size_hint_y:None
+    height:80
+    canvas:
+        Color:
+            rgba:1,1,1,1
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:[5]
+    MDIconButton:
+        size_hint_x:0.82
+        icon:"minus"
+        user_font_size:"20sp"
+        pos_hint:{'center_x':0.5,'center_y':0.5}
+    MDLabel:
+        size_hint_x:0.35
+        text:"1"
+        font_style:"Caption"
+        halign:"center"
+    MDIconButton:
+        size_hint_x:0.82
+        icon:"plus"
+        user_font_size:"20sp"
+        pos_hint:{'center_x':0.5,'center_y':0.5}
+
+    MDLabel:
+        text:"Aysha's..."
+        font_style:"Caption"
+        font_size:"10sp"
+
+    MDLabel:
+        size_hint_x:0.95
+        text:"Tk 5000"
+        theme_text_color:"Primary"
+        font_style:"Caption"
+        font_size:"11sp"
+
+<Order_amount_card>:
+    size_hint_y:None
+    height:250
+    canvas:
+        Color:
+            rgba:1,1,1,1
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:[5]
+    GridLayout:
+        cols:2
+        MDLabel:
+            size_hint_x:1.95
+
+            halign:"center"
+            text:"Subtotal:"
+            theme_text_color:"Secondary"
+            font_style:"Caption"
+            font_size:"11sp"
+        MDLabel:
+
+            halign:"center"
+            text:"Tk 500"
+            theme_text_color:"Primary"
+            font_style:"Caption"
+            font_size:"11sp"
+        MDLabel:
+
+            halign:"center"
+            size_hint_x:1.95
+            text:"Difference to minimum:"
+            theme_text_color:"Secondary"
+            font_style:"Caption"
+            font_size:"11sp"
+        MDLabel:
+
+            halign:"center"
+            text:"Tk 10"
+            theme_text_color:"Primary"
+            font_style:"Caption"
+            font_size:"11sp"
+        MDLabel:
+
+            halign:"center"
+            size_hint_x:1.95
+            text:"Delivery fee:"
+            theme_text_color:"Secondary"
+            font_style:"Caption"
+            font_size:"11sp"
+        MDLabel:
+
+            halign:"center"
+            text:"Tk 55"
+            theme_text_color:"Primary"
+            font_style:"Caption"
+            font_size:"11sp"
+        MDLabel:
+
+            halign:"center"
+            size_hint_x:1.95
+            text:"Discount:"
+            theme_text_color:"Secondary"
+            font_style:"Caption"
+            font_size:"11sp"
+            canvas:
+                Color:
+                    rgba:0,0,0,1
+                Rectangle:
+                    size:self.width,2
+                    pos:self.pos
+        MDLabel:
+
+            halign:"center"
+            text:" Tk -5"
+            theme_text_color:"Primary"
+            font_style:"Caption"
+            font_size:"11sp"
+            canvas:
+                Color:
+                    rgba:0,0,0,1
+                Rectangle:
+                    size:self.width,2
+                    pos:self.pos
+
+        BoxLayout:
+            MDLabel:
+
+                halign:"right"
+                text:"Total"
+                theme_text_color:"Primary"
+                bold:True
+                font_style:"Caption"
+                font_size:"11sp"
+            MDLabel:
+                halign:"left"
+                text:" (Incl.VAT)"
+                theme_text_color:"Secondary"
+
+                font_style:"Caption"
+                font_size:"11sp"
+        MDLabel:
+            bold:True
+            italic:True
+            halign:"center"
+            text:"Tk 548"
+            theme_text_color:"Primary"
+            font_style:"Caption"
+            font_size:"11sp"
+
+
+
+<Order_description_card>:
+    size_hint_y:None
+    height:500
+    canvas:
+        Color:
+            rgba:1,1,1,1
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:[5]
+    GridLayout:
+        cols:1
+        MDList:
+            TwoLineListItem:
+                text:"Contact Info:"
+                secondary_text:"01407951221"
+
+            TwoLineListItem:
+                text:"Delivery Details: Home"
+                secondary_text:"72/4,matikata,dhaka"
+            TwoLineListItem:
+                text:"Delivery Time"
+                secondary_text:"ASAP(50 MIN)"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

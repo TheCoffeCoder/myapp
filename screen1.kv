@@ -1,0 +1,268 @@
+<Navi>:
+    ScreenManager:
+        id:manager
+        Screen:
+            name:"view"
+            Boxlay:
+        Screen:
+            name:"kitchen"
+            Boxx:
+                id:kitchen_box
+        Screen:
+            name:"order"
+            Order:
+
+        Screen:
+            name:"final"
+            Button:
+                text:"okk"
+
+        Screen:
+            name:"review"
+            Review:
+
+
+    MDNavigationDrawer:
+        id: nav_drawer
+        BoxLayout:
+            orientation:"vertical"
+            BoxLayout:
+                size_hint_y:0.3
+                canvas:
+                    Color:
+                        rgba:248/255,252/255,3/255,1
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+            GridLayout:
+                cols:1
+                canvas:
+                    Color:
+                        rgba:1,1,1,1
+
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                MDFlatButton:
+                    text:"Order"
+                    text_color:252/255,3/255,27/255,1
+                    on_release:
+                        app.manager.transition.direction = 'left'
+                        app.manager.current = "order"
+                MDFlatButton:
+                    text:"Help"
+                    text_color:252/255,3/255,27/255,1
+                MDFlatButton:
+                    text:"Settings"
+                    text_color:252/255,3/255,27/255,1
+
+
+
+
+<Boxlay>:
+    orientation:"vertical"
+    BoxLayout:
+        size_hint_y:0.08
+        MDIconButton:
+            size_hint_x:0.6
+            icon: "menu"
+            user_font_size: "25sp"
+            on_release:app.nv.set_state("open")
+        MDLabel:
+            text:"Deliver to:"
+            halign:"right"
+            font_style:"Caption"
+            font_size:"15sp"
+        MDFlatButton:
+            text:"Current Location"
+            text_color:1,120/255,150/255,1
+            size_hint_x:1.6
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            font_size:"8sp"
+    BoxLayout:
+
+        canvas:
+            Color:
+                rgba:237/255,237/255,237/255,1
+
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        ScrollView:
+            id:scroll
+            size:1,1
+            GridLayout:
+                cols:1
+                size_hint_y:None
+                height:self.minimum_height
+                spacing:20
+                padding:10
+                BoxLayout:
+                    size_hint_y:None
+                    height:70
+                    canvas:
+                        Color:
+                            rgba:1,1,1,1
+                        RoundedRectangle:
+                            pos:self.pos
+                            size:self.size
+                            radius:[15]
+                    FloatLayout:
+                        size:0.5,0.3
+                        MDTextField:
+
+                            size_hint_x:0.6
+
+                            pos_hint:{'center_x':0.4,'center_y':0.5}
+                            hint_text:"Search"
+
+                        MDIconButton:
+                            icon:"menu"
+                            pos_hint:{'center_x':0.85,'center_y':0.5}
+                Card:
+                Card:
+                Card:
+                Card:
+                Card:
+                Card:
+                Card:
+                Card:
+                Card:
+                Card:
+
+
+
+<Btn>:
+    background_color:1,1,1,0
+    on_press:
+        app.manager.transition.direction = 'left'
+        app.manager.current="kitchen"
+
+<Card>:
+
+    orientation:"vertical"
+    size_hint_y:None
+    height:400
+    FloatLayout:
+        Image:
+
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            source:"index.jpg"
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                RoundedRectangle:
+                    texture:self.texture
+                    pos:self.pos
+                    size:self.size
+                    radius:[15,15,1,1]
+
+        BoxLayout:
+            size_hint:0.3,0.2
+            pos_hint:{'center_x':0.848,'center_y':0.9}
+            canvas:
+                Color:
+                    rgba:240/255,240/255,240/255,1
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+                    radius:[1,14,1,1]
+            MDLabel:
+                text:"55 MIN"
+                font_style:"Caption"
+                halign:"center"
+        BoxLayout:
+            size_hint:0.4,0.16
+            pos_hint:{'center_x':0.2,'center_y':0.8}
+            canvas:
+                Color:
+                    rgba:0.1,240/255,240/255,1
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+
+            MDLabel:
+                text:"20% OFF"
+                font_style:"Caption"
+                halign:"center"
+
+
+
+    BoxLayout:
+        orientation:"vertical"
+        size_hint_y:0.4
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[1,1,15,15]
+        MDLabel:
+            text:"Aysha's Kitchen"
+            font_style:"Caption"
+            theme_text_color:"Primary"
+            italic:True
+            bold:True
+            halign:"center"
+            font_size:"14sp"
+        BoxLayout:
+            MDLabel:
+                text:"Pasta,Pizza,Burger"
+                font_style:"Caption"
+                theme_text_color:"Secondary"
+                halign:"center"
+
+
+            Image:
+                size_hint_x:0.2
+                source:"star_2.jpg"
+                canvas:
+                    Color:
+                        rgba:1,1,1,1
+                    Rectangle:
+                        texture:self.texture
+                        pos:self.pos
+                        size:self.size
+
+
+
+            MDLabel:
+                size_hint_x:0.2
+                text:"3.7"
+                font_style:"Caption"
+                halign:"center"
+
+        BoxLayout:
+
+            MDLabel:
+                text:"50 Tk"
+                bold:True
+                font_style:"Caption"
+                halign:"center"
+                theme_text_color:"Primary"
+            MDLabel:
+                text:"Delivary Fee"
+                font_style:"Caption"
+                halign:"left"
+                theme_text_color:"Secondary"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

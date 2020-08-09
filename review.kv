@@ -1,0 +1,195 @@
+<Review>:
+    orientation:"vertical"
+    BoxLayout:
+        size_hint_y:0.3
+        FloatLayout:
+            Image:
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                source:"index.jpg"
+                canvas:
+                    Color:
+                        rgba:100/255,100/255,100/255,1
+                    Rectangle:
+                        texture:self.texture
+                        pos:self.pos
+                        size:self.size
+            MDIconButton:
+                user_font_size:"15sp"
+                size:35,35
+                icon:"apple"
+                md_bg_color:1.,1,1,0.5
+
+
+                pos_hint:{'center_x':0.1,'center_y':0.8}
+                on_release:
+                    app.manager.transition.direction = 'right'
+                    app.manager.current = "kitchen"
+
+    BoxLayout:
+        size_hint_y:0.1
+        canvas:
+            Color:
+                rgba:0,0,0,1
+
+            Rectangle:
+                size:self.width,2
+                pos:self.pos
+
+        MDLabel:
+            text:"Aysha's Kitchen"
+            halign:"center"
+            font_style:"Caption"
+            theme_text_color:"Primary"
+        MDIcon:
+            size_hint_x:0.15
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+
+
+
+        MDLabel:
+            size_hint_x:0.2
+            text:"3.7"
+            color:245/255,54/255,159/255,1
+            font_style:"Caption"
+            halign:"left"
+
+
+
+
+    BoxLayout:
+        ScrollView:
+            size:1,1
+            GridLayout:
+                cols:1
+                size_hint_y:None
+                height:self.minimum_height
+                Adress:
+                Review_card:
+                Review_card:
+                Review_card:
+                Review_card:
+                Review_card:
+                Review_card:
+                Review_card:
+                Review_card:
+
+
+
+<Adress>:
+    size_hint_y:None
+    minimum_height:50
+    BoxLayout:
+        size_hint_x:0.075
+    BoxLayout:
+        orientation:"vertical"
+        MDLabel:
+            text:"Adress:"
+            font_style:"Caption"
+            theme_text_color:"Primary"
+            valign:"middle"
+        MDLabel:
+            text:"Dhaka,cantonment,Dhaka,matikata bazar"
+            font_style:"Caption"
+            theme_text_color:"Secondary"
+            valign:"top"
+            halign:"center"
+    BoxLayout:
+        size_hint_x:0.05
+
+
+
+
+
+<Review_card>:
+    size_hint_y:None
+    minimum_height:50
+    orientation:"vertical"
+    canvas:
+        Color:
+            rgba:0.3,0.3,0.3,0.5
+
+        Rectangle:
+            size:self.width,2
+            pos:self.pos
+
+    BoxLayout:
+        size_hint_y:0.42
+        BoxLayout:
+            size_hint_x:2.9
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        BoxLayout:
+            size_hint_x:0.7
+
+    BoxLayout:
+        size_hint_y:0.05
+        BoxLayout:
+            size_hint_x:0.08
+        MDLabel:
+            text:"Raihan"
+            font_style:"Caption"
+            bold:True
+            theme_text_color:"Primary"
+            pos:2000,1000
+
+
+    BoxLayout:
+        BoxLayout:
+            size_hint_x:0.08
+        MDLabel:
+            text:"pretty much good test,love tha sauces thnx for nice delivery!!"
+            font_style:"Caption"
+            theme_text_color:"Secondary"
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        BoxLayout:
+            size_hint_x:0.05
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
